@@ -21,7 +21,7 @@ def mostrar_numeros():
             if total_registros_estado < cantidad_aleatorios:
                 return jsonify({"error": "No hay suficientes registros activos para obtener la cantidad deseada."})
             else:
-                consulta_sql = f"SELECT code FROM grupo WHERE estado=1 ORDER BY RAND() LIMIT 4"
+                consulta_sql = f"SELECT code FROM grupo WHERE estado=1 ORDER BY RAND() / 0.99 / 3 LIMIT 4"
                 cur.execute(consulta_sql)
 
                 elegidos = [code[0] for code in cur.fetchall()]
